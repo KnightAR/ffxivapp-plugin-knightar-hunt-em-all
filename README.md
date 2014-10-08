@@ -1,7 +1,13 @@
-# Gotta Hunt Em All - A FFXIVAPP Plugin by KnightAR
+# Gotta Hunt Em All <img src="https://raw.githubusercontent.com/KnightAR/ffxivapp-plugin-knightar-hunt-em-all/master/distribution/Logo.png"/> - A FFXIVAPP Plugin by KnightAR
 Beta Test Release: Source code & Guides to come shortly
 
-#How to setup and install
-1) <a href="https://dl.dropboxusercontent.com/u/3983/FFXIVAPP.Plugin.Knightarhuntemall.zip">Download</a> the distribution zip
-2) Extract the zip file into your FFXIVAPP folder under /plugins/FFXIVAPP.Plugin.Knightarhuntemall/
-3) Restart or Launch FFXIVAPP, change the settings, and your setup.
+#How to install
+<img src="https://raw.githubusercontent.com/KnightAR/ffxivapp-plugin-knightar-hunt-em-all/master/images/updatesouces.png" />
+* Open FFXIVAPP and go to Update section, Go to the "Plugin Sources" tab
+* Type into the source box: https://raw.githubusercontent.com/knightar/ffxivapp-plugin-knightar-hunt-em-all/master/distribution/VERSION.json
+* Click "Add or update source"
+* Go to the "Availiable Plugins" tab
+* Click on "FFXIVAPP.Plugin.Knightarhuntemall" and click install.
+
+#How to setup
+Coming Soon
