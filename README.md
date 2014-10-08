@@ -1,4 +1,2 @@
-ffxivapp-plugin-knightar-hunt-em-all
-====================================
-
-FFXIVAPP Plugin: Gotta Hunt Em All
+# Gotta Hunt Em All - A FFXIVAPP Plugin by KnightAR
+Beta Test Release: Source code to come shortly

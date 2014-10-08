@@ -1,0 +1,29 @@
+﻿{
+    "PluginInfo": {
+        "Name": "FFXIVAPP.Plugin.Knightarhuntemall",
+        "Version": "3.0.5393.29271",
+        "Files": [
+            {
+                "Name": "FFXIVAPP.Plugin.Knightarhuntemall.dll",
+                "Location": ""
+            },
+            {
+                "Name": "Logo.png",
+                "Location": ""
+            },
+            {
+                "Name": "PluginInfo.xml",
+                "Location": ""
+            },
+            {
+                "Name": "Growl.Connector.dll",
+                "Location": ""
+            },
+            {
+                "Name": "Growl.CoreLibrary.dll",
+                "Location": ""
+            }
+        ],
+		"SourceURI": "https://github.com/knightar/ffxivapp-plugin-knightar-hunt-em-all/raw/master/distribution/"
+    }
+}

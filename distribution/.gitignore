@@ -1,0 +1,14 @@
+# Ignore everything
+*
+# Don't ignore directories, so we can recurse into them
+!*/
+# Don't ignore .gitignore and other files
+!.gitignore
+!*.wav
+!*.mp3
+!FFXIVAPP.Plugin.Knightarhuntemall.dll
+!Logo.png
+!PluginInfo.xml
+!VERSION.json
+!Growl.Connector.dll
+!Growl.CoreLibrary.dll
