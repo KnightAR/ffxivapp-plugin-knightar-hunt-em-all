@@ -19,6 +19,6 @@ It currently supports <a href="http://www.pushover.net">Pushover.net</a>, <a hre
 * Click on "FFXIVAPP.Plugin.Knightarhuntemall" and click install.
 
 <h2>How to setup</h2>
-Coming Soon
+<a href="guide.md">View the Setup Guide</a>
 
 <h4>Beta Test Release: Source code & Guides to come shortly</h4>
