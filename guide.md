@@ -3,7 +3,7 @@ Setup Guide
 
 Before setting up any services, please read a summary of what each services provide and their cost.
 
-<h3><a href="#pushover-1">Pushover.net</a></h3>
+<h3><a href="#pushovernet-1">Pushover.net</a></h3>
 * Supported Operating Systems: <a href="https://pushover.net/clients">iOS, Android, Desktop</a>
 * Allowance: 7,500 notifications/month
 * Cost: First 5 days free, After $5 one time fee, per operating system (iOS, Android, Desktop/3rd Party Applications)
