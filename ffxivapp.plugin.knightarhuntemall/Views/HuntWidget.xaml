@@ -1,0 +1,198 @@
+﻿<Window x:Class="FFXIVAPP.Plugin.Knightarhuntemall.Views.HuntWidget"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:PluginProperties="clr-namespace:FFXIVAPP.Plugin.Knightarhuntemall.Properties"
+        xmlns:ViewModels="clr-namespace:FFXIVAPP.Plugin.Knightarhuntemall.ViewModels"
+        xmlns:commonConverters="clr-namespace:FFXIVAPP.Common.Converters;assembly=FFXIVAPP.Common"
+        xmlns:converters="clr-namespace:FFXIVAPP.Plugin.Knightarhuntemall.Converters"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="HuntWidget"
+        Width="{Binding HuntWidgetWidth,
+                        Source={x:Static PluginProperties:Settings.Default},
+                        Mode=TwoWay}"
+        Height="{Binding HuntWidgetHeight,
+                         Source={x:Static PluginProperties:Settings.Default},
+                         Mode=TwoWay}"
+        MinWidth="300"
+        MinHeight="360"
+        MaxWidth="600"
+        MaxHeight="600"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Closing="Widget_OnClosing"
+        Left="{Binding HuntWidgetLeft,
+                       Mode=TwoWay,
+                       Source={x:Static PluginProperties:Settings.Default}}"
+        Opacity="{Binding WidgetOpacity,
+                          Source={x:Static PluginProperties:Settings.Default}}"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Top="{Binding HuntWidgetTop,
+                      Mode=TwoWay,
+                      Source={x:Static PluginProperties:Settings.Default}}"
+        WindowStyle="None">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <x:Static x:Key="Settings"
+                      Member="PluginProperties:Settings.Default" />
+            <x:Static x:Key="HuntWidgetViewModel"
+                      Member="ViewModels:HuntWidgetViewModel.Instance" />
+            <commonConverters:VisibilityConverter x:Key="VisibilityConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/FFXIVAPP.Plugin.Knightarhuntemall;component/Resources/WidgetStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.LayoutTransform>
+            <ScaleTransform ScaleX="{Binding HuntWidgetUIScale,
+                                             Source={StaticResource Settings}}"
+                            ScaleY="{Binding HuntWidgetUIScale,
+                                             Source={StaticResource Settings}}" />
+        </Grid.LayoutTransform>
+        <StackPanel>
+            <DockPanel LastChildFill="True"
+                       Visibility="{Binding ShowTitlesOnWidgets,
+                                            Source={StaticResource Settings},
+                                            Converter={StaticResource VisibilityConverter}}">
+                <Border Margin="5 0 5 5"
+                        Background="WhiteSmoke"
+                        BorderBrush="Black"
+                        BorderThickness="1"
+                        CornerRadius="2">
+                    <DockPanel LastChildFill="True">
+                        <Button x:Name="WidgetClose"
+                                Width="15"
+                                Height="15"
+                                Margin="2"
+                                Click="WidgetClose_OnClick"
+                                DockPanel.Dock="Right"
+                                Padding="0"
+                                ToolTip="Close">
+                            <Path Data="M0,0 L5,5 M0,5 L5,0"
+                                  Stretch="None"
+                                  Stroke="Black" />
+                        </Button>
+                        <DockPanel Background="WhiteSmoke"
+                                   PreviewMouseDown="TitleBar_OnPreviewMouseDown">
+                            <Grid>
+                                <TextBlock Grid.Row="0"
+                                           Margin="5 -1"
+                                           HorizontalAlignment="Right"
+                                           FontSize="14"
+                                           FontWeight="Bold"
+                                           Foreground="Black"
+                                           Padding="0"
+                                           Text="[Called Hunts]" />
+                                <TextBlock Grid.Row="0"
+                                           Margin="5 2"
+                                           HorizontalAlignment="Left"
+                                           FontSize="10"
+                                           FontWeight="Bold"
+                                           Foreground="Black"
+                                           Padding="0"
+                                           Text="FFXIV-APP" />
+                            </Grid>
+                        </DockPanel>
+                    </DockPanel>
+                </Border>
+            </DockPanel>
+            <ItemsControl x:Name="Hunts">
+                <ItemsControl.Resources>
+                    <CollectionViewSource x:Key="Hunts"
+                                          Source="{Binding HuntEntity,
+                                                           Source={StaticResource HuntWidgetViewModel}}" />
+                </ItemsControl.Resources>
+                <ItemsControl.ItemsSource>
+                    <Binding Source="{StaticResource Hunts}" />
+                </ItemsControl.ItemsSource>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="5 1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row="1"
+                                        Margin="5 0"
+                                        VerticalAlignment="Bottom"
+                                        Background="WhiteSmoke"
+                                        BorderBrush="Black"
+                                        BorderThickness="1"
+                                        CornerRadius="2">
+                                    <DockPanel Margin="1"
+                                               LastChildFill="True">
+                                        <DockPanel DockPanel.Dock="Right">
+                                            <TextBlock Margin="5 0"
+                                                       HorizontalAlignment="Left"
+                                                       FontSize="12"
+                                                       FontWeight="Bold"
+                                                       Foreground="Black"
+                                                       Style="{StaticResource DecimalStyle}"
+                                                       Tag="Time"
+                                                       Text="{Binding Time}"
+                                                       Visibility="Visible" />
+                                        </DockPanel>
+                                        <DockPanel DockPanel.Dock="Left">
+                                            <TextBlock Margin="5 0"
+                                                       HorizontalAlignment="Left"
+                                                       FontSize="12"
+                                                       FontWeight="Bold"
+                                                       Foreground="Black"
+                                                       Style="{StaticResource DecimalStyle}"
+                                                       Tag="Caller"
+                                                       Text="{Binding Caller}"
+                                                       Visibility="Visible" />
+                                        </DockPanel>
+                                    </DockPanel>
+                                </Border>
+                                <ProgressBar Grid.Row="0"
+                                             Grid.RowSpan="2"
+                                             Height="18"
+                                             VerticalAlignment="Top"
+                                             BorderBrush="Black"
+                                             Maximum="1"
+                                             Minimum="0"
+                                             Style="{StaticResource ProgressBarStyleStopAnimation}"
+                                             Value="0" />
+                                <TextBlock Grid.Row="0"
+                                           Margin="5 0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontWeight="Bold"
+                                           Foreground="Black"
+                                           Style="{StaticResource CommaNumberStyle}"
+                                           Tag="Location"
+                                           Text="{Binding Name}"
+                                           Visibility="Visible" />
+                                <StackPanel Grid.Row="0"
+                                            Margin="5 0"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
+                                            Orientation="Horizontal">
+                                    <TextBlock Margin="3 0"
+                                               VerticalAlignment="Center"
+                                               FontWeight="Bold"
+                                               Foreground="Black"
+                                               Style="{StaticResource StatLabelStyle}"
+                                               Text="{Binding Location}"
+                                               Visibility="Visible" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -25,5 +25,3 @@ The hunt widget displays recently called hunts, so you can see the last few call
 
 <h2>How to setup</h2>
 <a href="guide.md">View the Setup Guide</a>
-
-<h4>Beta Test Release: Source code & Guides to come shortly</h4>
