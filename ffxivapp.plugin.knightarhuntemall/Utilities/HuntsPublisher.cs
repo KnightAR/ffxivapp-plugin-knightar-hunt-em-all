@@ -223,7 +223,7 @@ namespace FFXIVAPP.Plugin.Knightarhuntemall.Utilities
                     if (!PastHunts.AlreadySent(Name))
                     {
                         String HuntName = Name;
-                        HuntZoneLocation CalledHuntLocation = getLocation(chatLogEntry);
+                        HuntZoneLocation CalledHuntLocation = getLocation(chatLogEntry, HuntData.location);
                         String CalledHuntCallersName = getCallerName(chatLogEntry);
                         String CalledSource = getSource(chatLogEntry);
                         FoundHunt FoundHunt = new FoundHunt(HuntName, HuntData.translatedname, HuntData.rank, CalledHuntLocation, CalledHuntCallersName, CalledSource);
@@ -249,7 +249,7 @@ namespace FFXIVAPP.Plugin.Knightarhuntemall.Utilities
                     if (!PastHunts.AlreadySent(Name))
                     {
                         String HuntName = Name;
-                        HuntZoneLocation CalledHuntLocation = getLocation(chatLogEntry);
+                        HuntZoneLocation CalledHuntLocation = getLocation(chatLogEntry, HuntData.location);
                         String CalledHuntCallersName = getCallerName(chatLogEntry);
                         String CalledSource = getSource(chatLogEntry);
                         FoundHunt FoundHunt = new FoundHunt(HuntName, HuntData.translatedname, HuntData.rank, CalledHuntLocation, CalledHuntCallersName, CalledSource);
@@ -305,6 +305,19 @@ namespace FFXIVAPP.Plugin.Knightarhuntemall.Utilities
             return new FoundHunt();
         }
 
+        public static HuntZoneLocation getLocation(ChatLogEntry chatLogEntry, String Zone)
+        {
+            String LocRegex = String.Format(HuntsRegEx.MapLocationZoneRegEx, Zone);
+            MatchCollection LocMatched = Regex.Matches(chatLogEntry.Line, LocRegex);
+            foreach (Match match in LocMatched)
+            {
+                Int32 X = System.Convert.ToInt32(match.Groups[1].Value);
+                Int32 Y = System.Convert.ToInt32(match.Groups[2].Value);
+                return new HuntZoneLocation(Zone, X, Y);
+            }
+            return new HuntZoneLocation();
+        }
+
         public static HuntZoneLocation getLocation(ChatLogEntry chatLogEntry)
         {
             MatchCollection LocMatched = Regex.Matches(chatLogEntry.Line, HuntsRegEx.MapLocationRegEx);
@@ -314,7 +327,6 @@ namespace FFXIVAPP.Plugin.Knightarhuntemall.Utilities
                 Int32 X = System.Convert.ToInt32(match.Groups[2].Value);
                 Int32 Y = System.Convert.ToInt32(match.Groups[3].Value);
                 return new HuntZoneLocation(Zone, X, Y);
-                //HuntLocation = string.Format("{0} ({1},{2})", Zone, Loc1, Loc2);
             }
             return new HuntZoneLocation();
         }

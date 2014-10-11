@@ -44,11 +44,13 @@ namespace FFXIVAPP.Plugin.Knightarhuntemall.RegularExpressions
         public string rank { get; private set; }
         public Regex regex { get; private set; }
         public string translatedname { get; private set; }
+        public string location { get; private set; }
         public HuntEntry(string Name, string Rank, String Location, String LangName)
         {
             huntname = Name;
             rank = Rank;
             translatedname = LangName;
+            location = Location;
             regex = new Regex(string.Format(HuntsRegEx.RegExFormat, HuntsRegEx.ArrowChar, Location, LangName), SharedRegEx.DefaultOptions | RegexOptions.IgnoreCase);
         }
     }
@@ -260,8 +262,9 @@ namespace FFXIVAPP.Plugin.Knightarhuntemall.RegularExpressions
         public static string ArrowChar = "";
         public static string RegExFormat = @"{0}{1}.*{2}|.*?{2}.*{0}{1}";
 
-        public static string MapLocationRegEx = @"(.+) \((.+),(.+)\)";
-        public static string CallerNameRegEx = @"^(.+):";
+        public static string MapLocationRegEx = @"(.+?) \((.+?),(.+?)\)";
+        public static string MapLocationZoneRegEx = @"{0} \((.+?),(.+?)\)";
+        public static string CallerNameRegEx = @"^(.+?):";
 
         public static Regex SRank;
         public static Regex ARank;
