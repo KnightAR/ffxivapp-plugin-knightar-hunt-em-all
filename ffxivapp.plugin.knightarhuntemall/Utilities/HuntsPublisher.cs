@@ -129,7 +129,7 @@ namespace FFXIVAPP.Plugin.Knightarhuntemall.Utilities
                 }
 
                 Boolean growlSendRankNotification = ((FoundHunt.rank == "S" && Settings.Default.growlSendSRankNotifications) || (FoundHunt.rank == "A" && Settings.Default.growlSendARankNotifications));
-                if (Settings.Default.EnableGrowl)
+                if (Settings.Default.EnableGrowl && growlSendRankNotification)
                 {
                     GrowlPublisher.growlNotify(title, Message);
                 }

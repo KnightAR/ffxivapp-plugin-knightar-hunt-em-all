@@ -1,3 +1,7 @@
+3.0.5396.35928
+==============
+- Fixed issue where you couldn't turn off the specific rank notifications
+
 3.0.5396.35447
 ==============
 - Fixed issue with regex when the called text has a colon after the first word, the callers name includes that first word
