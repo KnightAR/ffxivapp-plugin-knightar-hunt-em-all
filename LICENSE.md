@@ -1,6 +1,8 @@
-Created by Ryan Wilson.
+Gotta Hunt Em All PLugin
+Created by KnightAR. Copyright © 2014 Ryan Wilson - All Rights Reserved
 
-Copyright © 2007 - 2014 Ryan Wilson - All Rights Reserved
+FFXIVAPP
+Created by Ryan Wilson. Copyright © 2007 - 2014 Ryan Wilson - All Rights Reserved
 
 Redistribution and use in source and binary forms, with or without 
 modification, are permitted provided that the following conditions are met: 
