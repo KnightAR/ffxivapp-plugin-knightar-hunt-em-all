@@ -38,7 +38,7 @@ using FFXIVAPP.Plugin.Knightarhuntemall.Utilities;
 
 namespace FFXIVAPP.Plugin.Knightarhuntemall.ViewModels
 {
-    internal sealed class HuntWidgetViewModel : INotifyPropertyChanged
+    internal sealed class HuntWidgetViewModel : INotifyPropertyChanged, IDisposable
     {
         #region Property Bindings
 
@@ -105,5 +105,11 @@ namespace FFXIVAPP.Plugin.Knightarhuntemall.ViewModels
         }
 
         #endregion
+
+        public void Dispose()
+        {
+            aTimer.Elapsed -= OnTimedEvent;
+            aTimer.Dispose();
+        }
     }
 }

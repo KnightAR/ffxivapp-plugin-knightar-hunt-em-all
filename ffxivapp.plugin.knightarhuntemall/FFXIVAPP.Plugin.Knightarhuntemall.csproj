@@ -38,19 +38,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FFXIVAPP.Common">
-      <HintPath>C:\Users\BigBang\Documents\ffxivapp\FFXIVAPP.Common.dll</HintPath>
+      <HintPath>..\..\ffxivapp-resources\FFXIVAPP.Common.dll</HintPath>
     </Reference>
     <Reference Include="FFXIVAPP.IPluginInterface">
-      <HintPath>C:\Users\BigBang\Documents\ffxivapp\FFXIVAPP.IPluginInterface.dll</HintPath>
+      <HintPath>..\..\ffxivapp-resources\FFXIVAPP.IPluginInterface.dll</HintPath>
     </Reference>
     <Reference Include="FFXIVAPP.Localization">
-      <HintPath>C:\Users\BigBang\Documents\ffxivapp\FFXIVAPP.Localization.dll</HintPath>
+      <HintPath>..\..\ffxivapp-resources\FFXIVAPP.Localization.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro">
-      <HintPath>C:\Users\BigBang\Documents\ffxivapp\Plugins\MahApps.Metro.dll</HintPath>
+      <HintPath>..\..\ffxivapp-resources\MahApps.Metro.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NAudio">
@@ -60,8 +60,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -76,15 +77,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ffxivapp-resources\System.Windows.Interactivity.dll</HintPath>
     </Reference>
-    <Reference Include="Growl.Connector, Version=2.0.6.1, Culture=neutral, PublicKeyToken=980c2339411be384, processorArchitecture=MSIL">
+    <Reference Include="Growl.Connector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=980c2339411be384, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libraries\Growl.Connector.dll</HintPath>
-      <HintPath>Plugins\FFXIVAPP.Plugin.Knightarhuntemall\</HintPath>
     </Reference>
-    <Reference Include="Growl.CoreLibrary, Version=2.0.6.1, Culture=neutral, PublicKeyToken=13e59d82e007b064, processorArchitecture=MSIL">
+    <Reference Include="Growl.CoreLibrary, Version=2.0.0.0, Culture=neutral, PublicKeyToken=13e59d82e007b064, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\libraries\Growl.CoreLibrary.dll</HintPath>
-      <HintPath>Plugins\FFXIVAPP.Plugin.Knightarhuntemall\</HintPath>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -170,6 +169,7 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="app.config" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
